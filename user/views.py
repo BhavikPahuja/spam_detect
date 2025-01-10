@@ -2,4 +2,4 @@ from django.shortcuts import render,HttpResponse
 
 # Create your views here.
 def home(request):
-    return HttpResponse("Yeah its working!!")
+    return render(request,'home.html')
