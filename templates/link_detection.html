@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Link Detection Page</title>
+</head>
+<body>
+    <h1>Link Detection</h1>
+
+    <form action="" method="post">
+        {% csrf_token %}
+
+        <label for="link">Enter your link:</label>
+        <input type="text" name="link" id="link" required>
+        <button type="submit">Submit</button>
+    </form>
+
+    {% if link_details %}
+        <!-- <p id="url"></p> -->
+         <h4>URL: {{url}}</h4>
+        <h2>Analysis Details</h2>
+        <ul>
+            {% for key, value in link_details.items %}
+                <li><strong>{{ key }}:</strong> {{ value }}</li>
+            {% endfor %}
+        </ul>
+    {% elif error %}
+        <p style="color: red;">{{ error }}</p>
+    {% endif %}
+
+
+    <!-- <script>
+
+        document.getElementById("url").innerText = document.getElementById("link").value
+
+    </script> -->
+
+</body>
+</html>

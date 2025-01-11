@@ -7,6 +7,7 @@ from django.conf.urls.static import static
 urlpatterns = [
     path('',views.home,name='home'),
     path('qr',views.qr,name='qr'),
+    path('link_detection',views.link_detection,name='link_detection'),
 
 
 ]
