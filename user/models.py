@@ -6,3 +6,7 @@ class QR_genration(models.Model):
 
     def __str__(self):
         return self.link
+
+class UploadedFile(models.Model):
+    file = models.FileField(upload_to='file_detection/')
+    uploaded_at = models.DateTimeField(auto_now_add=True)

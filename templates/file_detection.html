@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>File Detection</title>
+</head>
+<body>
+    <h1>File Detection</h1>
+
+    <form action="" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <label for="file">Upload your file:</label>
+        <input type="file" name="file" id="file" required>
+        <button type="submit">Scan File</button>
+    </form>
+
+    {% if message %}
+        <h2>{{ message }}</h2>
+        {% if file_name %}
+            <p><strong>File Name:</strong> {{ file_name }}</p>
+        {% endif %}
+        {% if scan_results %}
+            <h3>Scan Results:</h3>
+            <ul>
+                <li><strong>Harmless:</strong> {{ scan_results.harmless }}</li>
+                <li><strong>Malicious:</strong> {{ scan_results.malicious }}</li>
+                <li><strong>Suspicious:</strong> {{ scan_results.suspicious }}</li>
+                <li><strong>Undetected:</strong> {{ scan_results.undetected }}</li>
+                <li><strong>Timeout:</strong> {{ scan_results.timeout }}</li>
+            </ul>
+        {% endif %}
+    {% endif %}
+</body>
+</html>

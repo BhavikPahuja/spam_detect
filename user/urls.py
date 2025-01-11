@@ -8,6 +8,7 @@ urlpatterns = [
     path('',views.home,name='home'),
     path('qr',views.qr,name='qr'),
     path('link_detection',views.link_detection,name='link_detection'),
+    path('file_detection',views.file_detection,name='file_detection'),
 
 
 ]
