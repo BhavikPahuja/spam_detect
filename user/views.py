@@ -3,6 +3,7 @@ from .models import QR_genration
 import qrcode
 from django.core.files.base import ContentFile
 from io import BytesIO
+import hashlib
 
 def home(request):
     return render(request, 'home.html')
