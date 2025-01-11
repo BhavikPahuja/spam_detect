@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QR Code Generator</title>
+</head>
+<body>
+    <h1>Generate QR Code</h1>
+    <form method="POST">
+        {% csrf_token %}
+        <label for="input_link">Enter Link:</label>
+        <input type="url" id="input_link" name="input_link" required>
+        <button type="submit">Generate QR</button>
+    </form>
+
+    <h2>Generated QR Codes</h2>
+    <div>
+        {% for obj in objects %}
+            <p>Link: <a href="{{ obj.link }}" target="_blank">{{ obj.link }}</a></p>
+            <img src="{{ obj.image.url }}" alt="QR Code" style="width: 200px; height: auto;">
+        {% endfor %}
+    </div>
+</body>
+</html>
