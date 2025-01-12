@@ -12,33 +12,42 @@ def home(request):
     return render(request, 'home.html')
 
 
+
 def qr(request):
     if request.method == "POST":
         link_for_qr = request.POST.get("input_link")
+        
+        # Check if QR already exists
+        existing_qr = models.QR_genration.objects.filter(link=link_for_qr)
+        
+        if existing_qr.exists():
+            # If QR already exists, pass the existing QR code(s) to the template
+            return render(request, 'qr.html', {'objects': existing_qr})
 
-        # Generate the QR code
-        qr_image = qrcode.make(link_for_qr)
+        else:
+            # Generate the QR code
+            qr_image = qrcode.make(link_for_qr)
 
-        # Save the QR code to an in-memory file
-        buffer = BytesIO()
-        qr_image.save(buffer, format="PNG")
-        buffer.seek(0)
+            # Save the QR code to an in-memory file
+            buffer = BytesIO()
+            qr_image.save(buffer, format="PNG")
+            buffer.seek(0)
 
-        # Generate a sanitized filename using a hash
-        sanitized_filename = hashlib.md5(link_for_qr.encode()).hexdigest()[:10] + "_qr.png"
+            # Generate a sanitized filename using a hash
+            sanitized_filename = hashlib.md5(link_for_qr.encode()).hexdigest()[:10] + "_qr.png"
 
-        # Create a new QR_genration object
-        qr_instance = models.QR_genration(link=link_for_qr)
-        qr_instance.image.save(sanitized_filename, ContentFile(buffer.read()), save=True)
-        buffer.close()
+            # Create a new QR_genration object and save the image
+            qr_instance = models.QR_genration(link=link_for_qr)
+            qr_instance.image.save(sanitized_filename, ContentFile(buffer.read()), save=True)
+            buffer.close()
 
-        # Fetch all QR codes from the database
-        objects = models.QR_genration.objects.all()
+            # Fetch the newly created QR code (not all QR codes)
+            objects = models.QR_genration.objects.filter(link=link_for_qr)
 
-        return render(request, 'qr.html', {'objects': objects})
-    
+            return render(request, 'qr.html', {'objects': objects})
+
     # Render the template for GET requests
-    return render(request, 'qr.html')
+    return render(request, 'qr.html', {'objects': []})
 
 
 def link_detection(request):
@@ -54,11 +63,16 @@ def link_detection(request):
             url_object = client.get_object(f"/urls/{url_id}")
             
             # Access the `last_analysis_stats` dictionary
-            analysis_stats = url_object.last_analysis_stats
-            print(type(analysis_stats))  # Debug: Check the type of the stats
+            analysis_stats = url_object.last_analysis_stats # Dict
+            analysis_stats['url'] = link
+            print(analysis_stats)  # Debug: Check the type of the stats
+            # print(type(analysis_stats))  # Debug: Check the type of the stats
+
+            model = models.link_detection.objects.create(**analysis_stats)
 
             # Render the link details in the template
             return render(request, "link_detection.html", {"link_details": analysis_stats,"url":link})
+        
         except Exception as e:
             print(f"Error: {e}")  # Log the error for debugging purposes
             return render(request, "link_detection.html", {"error": "An error occurred while processing the link."})

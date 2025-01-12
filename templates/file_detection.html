@@ -1,18 +1,29 @@
 {% extends "base.html" %}
 {% block title %}File Detection{% endblock title %}
 
+{% block head %}
+<link rel="stylesheet" href="/static/css/file.css">
+<link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">  
+
+{% endblock head %}
+
 {% block main %}
 
-<h1>File Detection</h1>
 
-    <form action="" method="post" enctype="multipart/form-data">
+
+<div class="main">
+    <div class="analyze">
+        
+        <h1>Analyze your File</h1>
+        <form action="#" method="post" enctype="multipart/form-data">
         {% csrf_token %}
-        <label for="file">Upload your file:</label>
-        <input type="file" name="file" id="file" required>
-        <button type="submit">Scan File</button>
-    </form>
 
-    {% if message %}
+             <label for="input_file">Input File:</label> 
+             <input type="file" name="file" id="file" placeholder="Place The File" required>
+              <button type="submit">Analyze</button>
+        </form>
+
+        {% if message %}
         <h2>{{ message }}</h2>
         {% if file_name %}
             <p><strong>File Name:</strong> {{ file_name }}</p>
@@ -28,4 +39,10 @@
             </ul>
         {% endif %}
     {% endif %}
+    </div>
+</div>
+</div>
+
+
+   
 {% endblock main %}

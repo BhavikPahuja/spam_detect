@@ -2,19 +2,39 @@
 
 {% block title %}Url Shortner{% endblock title %}
 
+{% block head %}
+
+<link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
+<link rel="stylesheet" href="/static/css/url.css">
+
+{% endblock head %}
+
 {% block main %}
 
-This is the url shortner page
 
-<h1>URL Shortener</h1>
-<form method="post">
-    {% csrf_token %}
-    <input type="url" name="original_url" placeholder="Enter URL" required>
-    <button type="submit">Shorten</button>
-</form>
+<div class="main">
+    <div class="generate">
+        <h1>Shorten URL</h1>
+        <form method="POST">
+            {% csrf_token %}
 
-{% if short_url %}
-    <p>Your shortened URL: <a href="{{ short_url }}" target="_blank">{{ short_url }}</a></p>
-{% endif %}
+            <label for="input_url">Enter URL:</label>
+            <input type="url" id="original_url" name="original_url" required>
+            <button type="submit">Shorten URL</button>
+        </form>
+    </div>
+    <div class="give">
+        <h2>Shortened URL</h2>
+        <div>
+            <p>Shortened URL: <a href="#" target="_blank">{% if short_url %}
+                <p><a href="{{ short_url }}" target="_blank">{{ short_url }}</a></p>
+            {% endif %}</a></p>
+        </div>
+    </div>
+</div>
+</div>
+
+
+
   
 {% endblock main %}

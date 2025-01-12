@@ -1,0 +1,78 @@
+body {
+    background: linear-gradient(135deg, #1a1a1a, #2d2d2d);
+    color: #fff;
+}
+
+.main {
+    height: calc(100vh - 61px);
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+/* General Styling for the Analyze Section */
+.analyze {
+    padding: 2rem;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Form Styling */
+.analyze form {
+    background: #2d2d2d; /* Dark background for the form */
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3); /* Darker shadow */
+    padding: 2rem;
+    width: 100%;
+    max-width: 400px;
+}
+
+/* Input Field Styling */
+.analyze input[type="file"] {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid #444; /* Darker border */
+    border-radius: 8px;
+    font-size: 1rem;
+    color: #fff; /* White text */
+    background-color: #1a1a1a; /* Dark input background */
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.analyze input[type="file"]:focus {
+    border-color: #3b82f6;
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+/* Button Styling */
+.analyze button {
+    background-color: #3b82f6;
+    color: white;
+    font-weight: 600;
+    padding: 0.75rem;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.analyze button:hover {
+    background-color: #2563eb;
+    transform: translateY(-2px);
+}
+
+.analyze button:active {
+    transform: translateY(0);
+}
+
+/* Heading Styling */
+.analyze h1 {
+    font-size: 2.25rem;
+    color: #fff; /* White text */
+    margin-bottom: 1.5rem;
+    text-align: center;
+}

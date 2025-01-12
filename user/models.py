@@ -21,3 +21,15 @@ class url_shortener(models.Model):
 
     def __str__(self):
         return self.original_url
+    
+
+class link_detection(models.Model):
+    url = models.URLField(max_length=200)
+    malicious = models.CharField(max_length=50)
+    suspicious = models.CharField(max_length=50)
+    undetected = models.CharField(max_length=50)
+    harmless = models.CharField(max_length=50)
+    timeout = models.CharField(max_length=50)
+
+    def __str__(self):
+        return self.url

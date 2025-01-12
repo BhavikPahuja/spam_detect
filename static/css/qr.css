@@ -1,0 +1,136 @@
+body {
+    background: linear-gradient(135deg, #1a1a1a, #2d2d2d);
+    color: #fff;
+}
+
+.main {
+    height: calc(100vh - 61px);
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+}
+
+/* General Styling for the Generate Section */
+.generate {
+    padding: 2rem;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Form Styling */
+.generate form {
+    background: #2d2d2d; /* Dark background for the form */
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3); /* Darker shadow */
+    padding: 2rem;
+    width: 100%;
+    max-width: 400px;
+}
+
+/* Input Field Styling */
+.generate input[type="url"] {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid #444; /* Darker border */
+    border-radius: 8px;
+    font-size: 1rem;
+    color: #fff; /* White text */
+    background-color: #1a1a1a; /* Dark input background */
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.generate input[type="url"]:focus {
+    border-color: #3b82f6;
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+/* Button Styling */
+.generate button {
+    background-color: #3b82f6;
+    color: white;
+    font-weight: 600;
+    padding: 0.75rem;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.generate button:hover {
+    background-color: #2563eb;
+    transform: translateY(-2px);
+}
+
+.generate button:active {
+    transform: translateY(0);
+}
+
+/* Heading Styling */
+.generate h1 {
+    font-size: 2.25rem;
+    color: #fff; /* White text */
+    margin-bottom: 1.5rem;
+    text-align: center;
+}
+
+/* General Styling for the Give Section */
+.give {
+    padding: 2rem;
+    background: linear-gradient(135deg, #1a1a1a, #2d2d2d); /* Dark gradient */
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Heading Styling */
+.give h2 {
+    font-size: 2rem;
+    color: #fff; /* White text */
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+/* Grid Layout for QR Codes */
+.give .grid {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Card Styling for Each QR Code */
+.give .grid > div {
+    background: #2d2d2d; /* Dark card background */
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3); /* Darker shadow */
+    padding: 1.5rem;
+    transition: box-shadow 0.3s ease;
+}
+
+.give .grid > div:hover {
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.5); /* Darker hover shadow */
+}
+
+/* Link Styling */
+.give a {
+    color: #3b82f6; /* Blue link color */
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.give a:hover {
+    color: #2563eb; /* Darker blue on hover */
+    text-decoration: underline;
+}
+
+/* Image Styling */
+.give img {
+    border-radius: 8px;
+    transition: transform 0.3s ease;
+}
+
+.give img:hover {
+    transform: scale(1.05);
+}
