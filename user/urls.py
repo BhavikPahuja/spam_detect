@@ -9,6 +9,7 @@ urlpatterns = [
     path('qr',views.qr,name='qr'),
     path('link_detection',views.link_detection,name='link_detection'),
     path('file_detection',views.file_detection,name='file_detection'),
+    path('url_shortner',views.url_shortner,name='url_shortner'),
 
 
 ]

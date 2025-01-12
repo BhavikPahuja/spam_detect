@@ -1,12 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>File Detection</title>
-</head>
-<body>
-    <h1>File Detection</h1>
+{% extends "base.html" %}
+{% block title %}File Detection{% endblock title %}
+
+{% block main %}
+
+<h1>File Detection</h1>
 
     <form action="" method="post" enctype="multipart/form-data">
         {% csrf_token %}
@@ -31,5 +28,4 @@
             </ul>
         {% endif %}
     {% endif %}
-</body>
-</html>
+{% endblock main %}

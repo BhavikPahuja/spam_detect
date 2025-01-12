@@ -101,3 +101,7 @@ def file_detection(request):
         return render(request, "file_detection.html", context)
 
     return render(request, "file_detection.html", {"message": "Please upload a file."})
+
+
+def url_shortner(request):
+    return render(request,'url_shortner.html')

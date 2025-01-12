@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/css/base.css">
+    {% block head %}{% endblock head %}
+    <title> {% block title %}{% endblock title %} </title>
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="/qr">QR Genration</a></li>
+            
+                <li><a href="/link_detection">Link Detection</a></li>
+            
+                <li><a href="/file_detection">File Detection</a></li>
+            
+                <li><a href="/url_shortner">Url Shortner</a></li>
+
+
+            </ul>
+        </nav>
+    </header>
+
+
+    {% block main %}{% endblock main %}
+    
+</body>
+</html>

@@ -1,20 +1,20 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hello World</title>
-</head>
-<body>
-    <h1>This is home page</h1>
-    <a href="/qr">QR Genration</a>
-    This is working!! <br> <br>
+{% extends "base.html" %}
+
+{% block title %}This is the home page{% endblock title %}
+
+
+{% block main %}
+<h1>This is home page</h1>
+<a href="/qr">QR Genration</a>
+This is working!! <br> <br>
 
     <a href="/link_detection">Link Detection</a>
     This is working!! <br> <br>
-
+    
     <a href="/file_detection">File Detection</a>
-    This is working!! 
-
-</body>
-</html>
+    This is working!!  <br><br>
+    
+    <a href="/url_shortner">Url Shortner</a>
+    This is working!!
+    
+    {% endblock main %}
