@@ -1,10 +1,13 @@
-from django.shortcuts import render
+from django.shortcuts import render,redirect
 from .models import QR_genration
 import qrcode
 from django.core.files.base import ContentFile
 from io import BytesIO
 import hashlib
 import vt
+from django.http import JsonResponse
+from .models import URL
+
 
 def home(request):
     return render(request, 'home.html')
@@ -102,6 +105,18 @@ def file_detection(request):
 
     return render(request, "file_detection.html", {"message": "Please upload a file."})
 
+import pyshorteners
+from . import web_scrap_for_url_shortner
 
-def url_shortner(request):
-    return render(request,'url_shortner.html')
+def shorten_url(request):
+    short_url = None  # Default value if no URL is shortened
+    if request.method == "POST":
+        original_url = request.POST.get("original_url")
+        if original_url:
+            # Use pyshorteners to generate a shortened URL
+            s = pyshorteners.Shortener()
+            short_url = s.tinyurl.short(original_url)
+            # short_url = web_scrap_for_url_shortner.long_url(short_url)
+
+    return render(request, "url_shortener.html", {"short_url": short_url})
+
