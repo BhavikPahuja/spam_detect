@@ -1,12 +1,11 @@
 from django.shortcuts import render,redirect
-from .models import QR_genration
+from . import models
 import qrcode
 from django.core.files.base import ContentFile
 from io import BytesIO
 import hashlib
 import vt
 from django.http import JsonResponse
-from .models import URL
 
 
 def home(request):
@@ -29,12 +28,12 @@ def qr(request):
         sanitized_filename = hashlib.md5(link_for_qr.encode()).hexdigest()[:10] + "_qr.png"
 
         # Create a new QR_genration object
-        qr_instance = QR_genration(link=link_for_qr)
+        qr_instance = models.QR_genration(link=link_for_qr)
         qr_instance.image.save(sanitized_filename, ContentFile(buffer.read()), save=True)
         buffer.close()
 
         # Fetch all QR codes from the database
-        objects = QR_genration.objects.all()
+        objects = models.QR_genration.objects.all()
 
         return render(request, 'qr.html', {'objects': objects})
     
@@ -111,12 +110,28 @@ from . import web_scrap_for_url_shortner
 def shorten_url(request):
     short_url = None  # Default value if no URL is shortened
     if request.method == "POST":
+        
         original_url = request.POST.get("original_url")
-        if original_url:
-            # Use pyshorteners to generate a shortened URL
-            s = pyshorteners.Shortener()
-            short_url = s.tinyurl.short(original_url)
-            # short_url = web_scrap_for_url_shortner.long_url(short_url)
+        existing_ulr = models.url_shortener.objects.filter(original_url=original_url).values_list('shorten_url',flat=True)
 
-    return render(request, "url_shortener.html", {"short_url": short_url})
+        if existing_ulr:
+            return render(request, "url_shortener.html", {"short_url": existing_ulr[0]})
+
+        else:
+            if original_url:
+                # Use pyshorteners to generate a shortened URL
+                s = pyshorteners.Shortener()
+                short_url = s.tinyurl.short(original_url)
+                # short_url = web_scrap_for_url_shortner.long_url(short_url)
+
+                urls = {
+                    'original_url':original_url,
+                    'shorten_url':short_url
+                }
+
+                
+                model = models.url_shortener.objects.create(**urls)
+                return render(request, "url_shortener.html", {"short_url": short_url})
+
+    return render(request, "url_shortener.html", {"short_url": 'Please Enter a url'})
 
