@@ -12,6 +12,7 @@ urlpatterns = [
     path('url_shortener', views.shorten_url, name='shorten_url'),
     path('send_email', views.send_email, name='send_email'),
     path('anonymous_mail', views.anonymous_mail, name='anonymous_mail'),
+    path('anonymous_sms', views.anonymous_sms, name='anonymous_sms'),
     path('contact', views.contact, name='contact'),
 
 

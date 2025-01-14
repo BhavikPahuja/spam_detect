@@ -7,7 +7,7 @@ import hashlib
 import vt
 from django.http import JsonResponse
 from django.core.mail import send_mail
-
+import requests
 
 def send_email(request,email,subject,message):
     recipient_list = [email]
@@ -19,6 +19,20 @@ def send_email(request,email,subject,message):
         fail_silently=False,
     )
     return HttpResponse("Message Sent! Successfully")
+
+def send_sms(phone_number,message):
+    api_key = "e304cd3d0deca82bac6d856ba70f70d5530d9ff9b966ccc5"
+    url = "https://api.smsmobileapi.com/sendsms/"
+    payload = {
+    "recipients": f"{phone_number}",
+    "message": f"{message}",
+    "apikey": f"{api_key}"
+    }
+
+    response = requests.post(url, data=payload)
+
+    return response.text
+
 
 def home(request):
     return render(request, 'home.html')
@@ -185,3 +199,12 @@ def contact(request):
         ins.save()
 
     return render(request,'contact.html')
+
+def anonymous_sms(request):
+    if request.method == "POST":
+        phone = request.POST.get("phone")
+        message = request.POST.get("msg")
+        response = send_sms(f"+91{phone}",message)
+        return render(request,"anonymous_sms.html",{'response':response})
+
+    return render(request,"anonymous_sms.html",{'response':'Failed to fetch'})
