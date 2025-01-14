@@ -12,8 +12,7 @@ class UploadedFile(models.Model):
     uploaded_at = models.DateTimeField(auto_now_add=True)
 
 
-import string
-import random
+
 
 class url_shortener(models.Model):
     original_url = models.URLField(max_length=200)
@@ -33,3 +32,17 @@ class link_detection(models.Model):
 
     def __str__(self):
         return self.url
+
+import datetime
+
+class Contact(models.Model):
+    name = models.URLField(max_length=200)
+    email = models.EmailField(max_length=200)
+    phone = models.CharField(max_length=200)
+    message = models.TextField()
+    
+    def __str__(self):
+        ObjName = f"{self.name} {self.phone} {datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')}"
+        return ObjName
+
+    

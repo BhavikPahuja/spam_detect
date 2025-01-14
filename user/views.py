@@ -1,4 +1,4 @@
-from django.shortcuts import render,redirect
+from django.shortcuts import render,redirect,HttpResponse
 from . import models
 import qrcode
 from django.core.files.base import ContentFile
@@ -6,12 +6,22 @@ from io import BytesIO
 import hashlib
 import vt
 from django.http import JsonResponse
+from django.core.mail import send_mail
 
+
+def send_email(request,email,subject,message):
+    recipient_list = [email]
+    send_mail(
+        subject=subject,
+        message=message,
+        from_email='nabeelalikhan314@gmail.com',
+        recipient_list=recipient_list,
+        fail_silently=False,
+    )
+    return HttpResponse("Message Sent! Successfully")
 
 def home(request):
     return render(request, 'home.html')
-
-
 
 def qr(request):
     if request.method == "POST":
@@ -149,3 +159,29 @@ def shorten_url(request):
 
     return render(request, "url_shortener.html", {"short_url": 'Please Enter a url'})
 
+def anonymous_mail(request):
+
+    if request.method == "POST":
+        email_to = request.POST.get('email_to')
+        subject = request.POST.get('subject')
+        message = request.POST.get('message')
+
+        return HttpResponse(send_email(request,email_to,subject,message))
+
+
+    return render(request,'anonymous_mail.html')
+
+def contact(request):
+
+    if request.method == "POST":
+        user_data = {
+            "name":request.POST.get("name"),
+            "email":request.POST.get("email"),
+            "phone":request.POST.get("phone"),
+            "message":request.POST.get("message"),
+                     }
+        
+        ins = models.Contact.objects.create(**user_data)
+        ins.save()
+
+    return render(request,'contact.html')

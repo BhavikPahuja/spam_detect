@@ -1,5 +1,3 @@
-a = {"hello":"world"}
-print(a)
+import datetime
 
-a['car'] = "bmw"
-print(a)
+print(datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S"))

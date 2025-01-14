@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% block title %}Anonymous Mail{% endblock title %}
+
+
+{% block main %}
+
+This is worlign <br><br><br><br> <br>
+
+<form action="" method="post">
+
+    {% csrf_token %}
+    <label for="email_to">To: </label>
+    <input type="email" name="email_to" id="email_to" placeholder="To: example@gmail.com"><br><br>
+
+    <label for="subject">Subject</label>
+    <input type="text" name="subject" id="subject" placeholder="Enter your subject"><br><br>
+
+    <label for="message">Message</label>
+    <textarea name="message" id="message"></textarea><br><br>
+    <button type="submit" >Submit</button>
+</form>
+
+{% endblock main %}
