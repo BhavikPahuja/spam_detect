@@ -3,20 +3,28 @@
 
 {% block main %}
 
-<br><br><br><br><br>
-<h1>This is Anonymous SMS Page</h1>
+<div class="container">
+        <div class="content">
+            <h1>This is Anonymous SMS Page</h1>
+            <div class="input-container">
+                <form action="" method="post">
+                    {% csrf_token %}
+                    <label for="phone">Enter receiver's phone number:</label>
+                    <input type="tel" name="phone" id="phone" placeholder="Don't add country code" required><br><br>
 
-<form action="" method="post">
-    {% csrf_token %}
-    <label for="phone">Enter reciever's phone number</label>
-    <input type="tel" name="phone" id="phone" placeholder="Dont add country code"><br><br>
+                    <label for="msg">Enter the Message:</label>
+                    <textarea name="msg" id="msg" placeholder="Enter your message here..." required></textarea><br><br>
 
-    <label for="msg">Enter the Message</label>
-    <textarea name="msg" id="msg"></textarea><br>
-    <button type="submit">Send</button>
-</form>
+                    <button type="submit">Send</button>
+                </form>
+            </div>
+            {{response}}
+        </div>
+    </div>
 
-{{response}}
+    <div class="footer">
+        <p>&copy; 2025 Secure Tools Platform. All rights reserved.</p>
+    </div>
   
 
 {% endblock main %}
