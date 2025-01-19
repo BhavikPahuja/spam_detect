@@ -10,40 +10,45 @@
 
 
 
-    <div class="main">
-        <div class="analyze">
-            <h1>Analyze your Link</h1>
-            <form action="#" method="post">
-            {% csrf_token %}
+    <div class="container">
+        <div class="content">
+            <h1>Link Analyzer</h1>
+            <p>Enter a URL below to analyze and view its details.</p>
 
-                 <label for="link">Enter Link:</label> <input type="url" id="link" name="link"
-                    placeholder="Put the Link" required> <button type="submit">Analyze</button> </form>
-        </div>
-        <div class="link-details">
-            <h2>Link Details</h2>
-            <div class="details">
-                <p><strong>Title:</strong>     <h4>URL: {{url}}</h4>
-                </p>
-                <p><strong>Description:</strong> Link Description Here</p>
-                <p>
+            <div class="input-container">
+                <form action="#" method="post">
+                    {% csrf_token %}
+                    <label for="link">Enter Link:</label>
+                    <input type="url" id="link" name="link" placeholder="Put the Link" required>
+                    <button type="submit">Analyze</button>
 
-                    
-    {% if link_details %}
-    <p id="url"></p>
-    <ul>
-            {% for key, value in link_details.items %}
-                <li><strong>{{ key }}:</strong> {{ value }}</li>
-            {% endfor %}
-        </ul>
-    {% elif error %}
-    <p style="color: red;">{{ error }}</p>
-    {% endif %}
-    
-                </p>
+                    <div class="results" id="linkResults">
+                        <h2>Link Details</h2>
+                        <div class="details">
+                            <p><strong>Title:</strong> <span id="title">Loading...</span></p>
+                            <p><strong>Description:</strong> <span id="description">Loading...</span></p>
+                            <p><strong>URL:</strong> <a id="linkURL" href="#" target="_blank">Loading...</a></p>
+
+                            {% if link_details %}
+                            <p id="url"></p>
+                            <ul>
+                                {% for key, value in link_details.items %}
+                                <li><strong>{{ key }}:</strong> {{ value }}</li>
+                                {% endfor %}
+                            </ul>
+                            {% elif error %}
+                            <p style="color: red;">{{ error }}</p>
+                            {% endif %}
+                        </div>
+                    </div>
+                </form>
             </div>
         </div>
     </div>
-</div>
+
+    <div class="footer">
+        <p>&copy; 2025 Link Analyzer. All Rights Reserved.</p>
+    </div>
 
 
 
