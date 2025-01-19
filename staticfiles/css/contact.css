@@ -46,7 +46,9 @@ p {
     margin-bottom: 30px;
 }
 
-input[type="url"] {
+input[type="text"],
+input[type="email"],
+textarea {
     width: 100%;
     padding: 15px;
     font-size: 1rem;
@@ -56,9 +58,12 @@ input[type="url"] {
     color: #fff;
     outline: none;
     transition: border-color 0.3s ease;
+    margin-bottom: 15px;
 }
 
-input[type="url"]:focus {
+input[type="text"]:focus,
+input[type="email"]:focus,
+textarea:focus {
     border-color: #4682B4;
     box-shadow: 0 0 10px linear-gradient(315deg, #ffbc00, #ff0058);
 }
@@ -83,35 +88,6 @@ button:hover {
 
 button:active {
     transform: translateY(0);
-}
-
-.results {
-    display: none;
-    background-color: rgba(0, 0, 0, 0.7);
-    padding: 20px;
-    border-radius: 8px;
-    margin-top: 20px;
-}
-
-.results h2 {
-    font-size: 1.8rem;
-    margin-bottom: 20px;
-}
-
-.results p {
-    margin-bottom: 10px;
-}
-
-.results a {
-    color: #00aaff;
-    text-decoration: none;
-    font-weight: bold;
-    transition: color 0.3s ease;
-}
-
-.results a:hover {
-    color: #0088cc;
-    text-decoration: underline;
 }
 
 .footer {

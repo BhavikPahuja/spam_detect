@@ -1,78 +1,95 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 body {
-    background: linear-gradient(135deg, #1a1a1a, #2d2d2d);
+    background: #1d061a;
+    font-family: 'Arial', sans-serif;
     color: #fff;
+    overflow-x: hidden;
 }
 
-.main {
-    height: calc(100vh - 61px);
+.container {
     display: flex;
-    width: 100%;
-    flex-direction: column;
     justify-content: center;
     align-items: center;
-}
-
-/* General Styling for the Analyze Section */
-.analyze {
-    padding: 2rem;
     min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    text-align: center;
+    padding: 20px;
 }
 
-/* Form Styling */
-.analyze form {
-    background: #2d2d2d; /* Dark background for the form */
+.content {
+    max-width: 600px;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.2);
+    border: 2px solid black;
+    padding: 30px;
     border-radius: 12px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3); /* Darker shadow */
-    padding: 2rem;
-    width: 100%;
-    max-width: 400px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
 }
 
-/* Input Field Styling */
-.analyze input[type="file"] {
-    width: 100%;
-    padding: 0.75rem;
-    border: 1px solid #444; /* Darker border */
-    border-radius: 8px;
+h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+    color: #ffffff;
+}
+
+p {
+    margin-bottom: 20px;
+    color: #ddd;
     font-size: 1rem;
-    color: #fff; /* White text */
-    background-color: #1a1a1a; /* Dark input background */
-    transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
-.analyze input[type="file"]:focus {
-    border-color: #3b82f6;
-    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+.input-container {
+    margin-bottom: 30px;
 }
 
-/* Button Styling */
-.analyze button {
-    background-color: #3b82f6;
+input[type="file"] {
+    width: 100%;
+    padding: 15px;
+    font-size: 1rem;
+    border: 1px solid linear-gradient(315deg, #ffbc00, #ff0058);
+    border-radius: 8px;
+    background-color: #333;
+    color: #fff;
+    outline: none;
+    transition: border-color 0.3s ease;
+}
+
+input[type="file"]:focus {
+    border-color: #4682B4;
+    box-shadow: 0 0 10px linear-gradient(315deg, #ffbc00, #ff0058);
+}
+
+button {
+    background-color: #4682B4;
     color: white;
     font-weight: 600;
-    padding: 0.75rem;
+    padding: 15px;
     border-radius: 8px;
+    border: none;
+    width: 100%;
     cursor: pointer;
+    font-size: 1.1rem;
     transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
-.analyze button:hover {
-    background-color: #2563eb;
+button:hover {
+    background-color: #315b7e;
     transform: translateY(-2px);
 }
 
-.analyze button:active {
+button:active {
     transform: translateY(0);
 }
 
-/* Heading Styling */
-.analyze h1 {
-    font-size: 2.25rem;
-    color: #fff; /* White text */
-    margin-bottom: 1.5rem;
+.footer {
+    position: absolute;
+    bottom: 20px;
+    width: 100%;
     text-align: center;
+    font-size: 0.9rem;
+    color: #ddd;
 }
