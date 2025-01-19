@@ -11,38 +11,40 @@
 
 
 
-<div class="main">
-    <div class="analyze">
-        
-        <h1>Analyze your File</h1>
-        <form action="#" method="post" enctype="multipart/form-data">
-        {% csrf_token %}
+<div class="container">
+        <div class="content">
+            <h1>Analyze Your File</h1>
+            <div class="input-container">
+                <form action="#" method="post" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    <label for="input_file">Input File:</label>
+                    <input type="file" id="input_file" name="file" placeholder="Place The File" required>
+                    <button type="submit">Analyze</button>
 
-             <label for="input_file">Input File:</label> 
-             <input type="file" name="file" id="file" placeholder="Place The File" required>
-              <button type="submit">Analyze</button>
-        </form>
-
-        {% if message %}
-        <h2>{{ message }}</h2>
-        {% if file_name %}
-            <p><strong>File Name:</strong> {{ file_name }}</p>
-        {% endif %}
-        {% if scan_results %}
-            <h3>Scan Results:</h3>
-            <ul>
-                <li><strong>Harmless:</strong> {{ scan_results.harmless }}</li>
-                <li><strong>Malicious:</strong> {{ scan_results.malicious }}</li>
-                <li><strong>Suspicious:</strong> {{ scan_results.suspicious }}</li>
-                <li><strong>Undetected:</strong> {{ scan_results.undetected }}</li>
-                <li><strong>Timeout:</strong> {{ scan_results.timeout }}</li>
-            </ul>
-        {% endif %}
-    {% endif %}
+                    {% if message %}
+                    <h2>{{ message }}</h2>
+                    {% if file_name %}
+                    <p><strong>File Name:</strong> {{ file_name }}</p>
+                    {% endif %}
+                    {% if scan_results %}
+                    <h3>Scan Results:</h3>
+                    <ul>
+                        <li><strong>Harmless:</strong> {{ scan_results.harmless }}</li>
+                        <li><strong>Malicious:</strong> {{ scan_results.malicious }}</li>
+                        <li><strong>Suspicious:</strong> {{ scan_results.suspicious }}</li>
+                        <li><strong>Undetected:</strong> {{ scan_results.undetected }}</li>
+                        <li><strong>Timeout:</strong> {{ scan_results.timeout }}</li>
+                    </ul>
+                    {% endif %}
+                    {% endif %}
+                </form>
+            </div>
+        </div>
     </div>
-</div>
-</div>
 
+    <div class="footer">
+        <p>&copy; 2025 Secure Tools Platform. All rights reserved.</p>
+    </div>
 
    
 {% endblock main %}
