@@ -3,27 +3,34 @@
 
 {% block main %}
 
-<br><br><br><br><br><br>
-This is contact page
+<div class="container">
+        <div class="content">
+            <h1>Contact Us</h1>
+            <p>If you have any questions or need assistance, feel free to reach out to us using the form below.</p>
+            <div class="input-container">
+                <form action="" method="post">
+                    {% csrf_token %}
+                    <label for="name">Name:</label>
+                    <input type="text" name="name" id="name" placeholder="Enter your name" required><br><br>
 
-<form action="" method="post">
+                    <label for="email">Email:</label>
+                    <input type="email" name="email" id="email" placeholder="Enter your email" required><br><br>
 
-    {% csrf_token %}<br><br>
-    <label for="name">Name:</label>
-    <input type="text" name="name" id="name"><br><br>
+                    <label for="phone">Phone:</label>
+                    <input type="tel" name="phone" id="phone" placeholder="Enter your phone number" required><br><br>
 
-    <label for="email">Email:</label>
-    <input type="email" name="email" id="email"><br><br>
+                    <label for="message">Message:</label>
+                    <textarea name="message" id="message" placeholder="Enter your message here..." required></textarea><br><br>
 
-    <label for="phone">Phone</label>
-    <input type="tel" name="phone" id="phone"><br><br>
+                    <button type="submit">Submit</button>
+                </form>
+            </div>
+        </div>
+    </div>
 
-    <label for="message">Messgae</label>
-    <textarea name="message" id="message"></textarea>
-
-    <button type="submit">Submit</button>
-
-</form>
+    <div class="footer">
+        <p>&copy; 2025 Secure Tools Platform. All rights reserved.</p>
+    </div>
 
 
 {% endblock main %}
