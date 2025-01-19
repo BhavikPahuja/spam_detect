@@ -5,50 +5,30 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block title %}{% endblock title %}</title>
-    <link rel="stylesheet" href="/static/css/base.css">
-    <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/home.css">
     {% block head %}{% endblock head %}
 </head>
 
 <body>
-    <div class="page">
-        <div class="navbar">
-            <nav class="bg-gray-800" style="background-color: #5f5f5f;">
-                <div class="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
-                    <div class="relative flex h-16 items-center justify-between">
-                        <div class="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
-                            <div class="flex shrink-0 items-center">
-                                <a href="/"><img class="h-8 w-auto" src="/static/images/image-removebg-preview.png" alt="Your Company"></a>
-                            </div>
-                            <div class="hidden sm:ml-6 sm:block">
-                                <div class="flex space-x-4">
-                                    <a href="/"
-                                        class="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Home</a>
-                                    <a href="/link_detection"
-                                        class="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Link
-                                        Detection</a>
-                                    <a href="/qr"
-                                        class="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white">QR
-                                        Generator</a>
-                                    <a href="/file_detection"
-                                        class="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white">File
-                                        Detection</a>
-                                    <a href="/url_shortener"
-                                        class="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white">URL
-                                        Shotner</a>
-                                    <a href="/anonymous_mail"
-                                        class="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Anonymous Mail</a>
-                                    <a href="/anonymous_sms"
-                                        class="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Anonymous SMS</a>
-                                    <a href="/contact"
-                                        class="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Contact</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </nav>
-        </div>
+    <header class="navbar">
+    <nav class="nav-container">
+      <div class="logo">
+        <a href="home.html" aria-label="Home">
+          <img src="Spam.png" alt="Secure Tools Platform Logo">
+        </a>
+      </div>
+      <ul class="nav-links">
+        <li><a href="Link.html">Link Detection</a></li>
+        <li><a href="qr.html">QR Generator</a></li>
+        <li><a href="file.html">File Detection</a></li>
+        <li><a href="url.html">URL Shortener</a></li>
+        <li><a href="mail.html">Anonymous Mail</a></li>
+        <li><a href="message.html">Anonymous Message</a></li>
+        <li><a href="contact.html">Contact Us</a></li>
+        <li><a href="about.html">About Us</a></li>
+      </ul>
+    </nav>
+  </header>
 
         {% block main %}{% endblock main %}
 
