@@ -49,6 +49,16 @@
     <div class="footer">
         <p>&copy; 2025 Link Analyzer. All Rights Reserved.</p>
     </div>
+    <script>
+        document.getElementById('toggleButton').addEventListener('click', function() {
+            var container = document.getElementById('linkResults');
+            if (container.style.display === 'none' || container.style.display === '') {
+                container.style.display = 'block';
+            } else {
+                container.style.display = 'none';
+            }
+        });
+    </script>
 
 
 
