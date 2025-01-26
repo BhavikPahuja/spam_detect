@@ -21,21 +21,23 @@
                     <input type="file" id="input_file" name="file" placeholder="Place The File" required>
                     <button type="submit">Analyze</button>
 
-                    {% if message %}
-                    <h2>{{ message }}</h2>
-                    {% if file_name %}
-                    <p><strong>File Name:</strong> {{ file_name }}</p>
-                    {% endif %}
-                    {% if scan_results %}
-                    <h3>Scan Results:</h3>
-                    <ul>
-                        <li><strong>Harmless:</strong> {{ scan_results.harmless }}</li>
-                        <li><strong>Malicious:</strong> {{ scan_results.malicious }}</li>
-                        <li><strong>Suspicious:</strong> {{ scan_results.suspicious }}</li>
-                        <li><strong>Undetected:</strong> {{ scan_results.undetected }}</li>
-                        <li><strong>Timeout:</strong> {{ scan_results.timeout }}</li>
-                    </ul>
-                    {% endif %}
+                    <div class="results" id="linkResults">
+                        {% if message %}
+                        <h2>{{ message }}</h2>
+                        {% if file_name %}
+                        <p><strong>File Name:</strong> {{ file_name }}</p>
+                        {% endif %}
+                        {% if scan_results %}
+                        <h3>Scan Results:</h3>
+                        <ul>
+                            <li><strong>Harmless:</strong> {{ scan_results.harmless }}</li>
+                            <li><strong>Malicious:</strong> {{ scan_results.malicious }}</li>
+                            <li><strong>Suspicious:</strong> {{ scan_results.suspicious }}</li>
+                            <li><strong>Undetected:</strong> {{ scan_results.undetected }}</li>
+                            <li><strong>Timeout:</strong> {{ scan_results.timeout }}</li>
+                        </ul>
+                        {% endif %}
+                    </div>
                     {% endif %}
                 </form>
             </div>
@@ -45,6 +47,17 @@
     <div class="footer">
         <p>&copy; 2025 Secure Tools Platform. All rights reserved.</p>
     </div>
+
+    <script>
+        document.getElementById('toggleButton').addEventListener('click', function() {
+            var container = document.getElementById('linkResults');
+            if (container.style.display === 'none' || container.style.display === '') {
+                container.style.display = 'block';
+            } else {
+                container.style.display = 'none';
+            }
+        });
+    </script>
 
    
 {% endblock main %}
