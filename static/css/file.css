@@ -93,3 +93,7 @@ button:active {
     font-size: 0.9rem;
     color: #ddd;
 }
+
+.result {
+    display: none;
+}
