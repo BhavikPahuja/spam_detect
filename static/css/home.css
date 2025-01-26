@@ -26,13 +26,13 @@ body {
 
 .nav-container {
     display: flex;
-    justify-content: center; /* Centering the content */
+    justify-content: center;
     align-items: center;
     padding: 1rem 2rem;
 }
 
 .logo {
-    margin-right: auto; /* Aligns logo to the left */
+    margin-right: auto;
 }
 
 .logo img {
@@ -55,7 +55,7 @@ body {
     padding: 0.5rem 1rem;
     border-radius: 0.25rem;
     transition: background-color 0.3s ease;
-    text-align: center; /* Centering the text within the links */
+    text-align: center;
 }
 
 .nav-links a:hover {
@@ -145,16 +145,6 @@ body {
 .container .box:nth-child(6):before,
 .container .box:nth-child(6):after {
     background: linear-gradient(315deg, #ff9900, #ff0077);
-}
-
-.container .box:nth-child(7):before,
-.container .box:nth-child(7):after {
-    background: linear-gradient(315deg, #22c1c3, #fdbb2d);
-}
-
-.container .box:nth-child(8):before,
-.container .box:nth-child(8):after {
-    background: linear-gradient(315deg, #ff105f, #ffad06);
 }
 
 .container .box span {
