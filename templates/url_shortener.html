@@ -40,6 +40,17 @@
         <p>&copy; 2025 Secure Tools Platform. All rights reserved.</p>
     </div>
 
+   <script>
+        document.getElementById('toggleButton').addEventListener('click', function() {
+            var container = document.getElementById('urlResults');
+            if (container.style.display === 'none' || container.style.display === '') {
+                container.style.display = 'block';
+            } else {
+                container.style.display = 'none';
+            }
+        });
+    </script>
+
 
   
 {% endblock main %}
