@@ -19,7 +19,7 @@
                     {% csrf_token %}
                     <label for="input_file">Input File:</label>
                     <input type="file" id="input_file" name="file" placeholder="Place The File" required>
-                    <button type="submit">Analyze</button>
+                    <button type="submit" id="toggleButton">Analyze</button>
 
                     <div class="results" id="linkResults">
                         {% if message %}
