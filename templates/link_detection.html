@@ -20,7 +20,7 @@
                     {% csrf_token %}
                     <label for="link">Enter Link:</label>
                     <input type="url" id="link" name="link" placeholder="Put the Link" required>
-                    <button type="submit">Analyze</button>
+                    <button type="submit" id="toggleButton">Shorten URL</button>
 
                     <div class="results" id="linkResults">
                         <h2>Link Details</h2>
