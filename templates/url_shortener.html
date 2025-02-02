@@ -1,15 +1,13 @@
 {% extends "base.html" %}
-
 {% block title %}Url Shortner{% endblock title %}
 
 {% block head %}
-
 <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
 <link rel="stylesheet" href="/static/css/url.css">
-
 {% endblock head %}
 
 {% block main %}
+
 
 
 <div class="container">
@@ -18,38 +16,20 @@
             <div class="input-container">
                 <form method="POST">
                     {% csrf_token %}
-                    <label for="input_url">Enter URL:</label>
-                    <input type="url" id="input_url" name="input_url" placeholder="Paste your link here" required>
+                    <label for="oriinal_url">Enter URL:</label>
+                    <input type="url" id="input_url" name="original_url" placeholder="Paste your link here" required>
                     <button type="submit" id="toggleButton">Shorten URL</button>
 
-                    <div class="results" id="urlResults">
                         <h2>Shortened URL</h2>
-                        <p>Original URL: <a href="#" target="_blank">Sample Original Link</a></p>
-                        <p>Shortened URL: 
+                        <p> 
                             {% if short_url %}
                             <a href="{{ short_url }}" target="_blank">{{ short_url }}</a>
                             {% endif %}
                         </p>
-                    </div>
                 </form>
             </div>
         </div>
     </div>
-
-    <div class="footer">
-        <p>&copy; 2025 Secure Tools Platform. All rights reserved.</p>
-    </div>
-
-   <script>
-        document.getElementById('toggleButton').addEventListener('click', function() {
-            var container = document.getElementById('urlResults');
-            if (container.style.display === 'none' || container.style.display === '') {
-                container.style.display = 'block';
-            } else {
-                container.style.display = 'none';
-            }
-        });
-    </script>
 
 
   

@@ -22,12 +22,9 @@
                     <input type="url" id="link" name="link" placeholder="Put the Link" required>
                     <button type="submit" id="toggleButton">Analyze</button>
 
-                    <div class="results" id="linkResults">
+                    
                         <h2>Link Details</h2>
                         <div class="details">
-                            <p><strong>Title:</strong> <span id="title">Loading...</span></p>
-                            <p><strong>Description:</strong> <span id="description">Loading...</span></p>
-                            <p><strong>URL:</strong> <a id="linkURL" href="#" target="_blank">Loading...</a></p>
 
                             {% if link_details %}
                             <p id="url"></p>
@@ -40,27 +37,12 @@
                             <p style="color: red;">{{ error }}</p>
                             {% endif %}
                         </div>
-                    </div>
+
+
                 </form>
             </div>
         </div>
     </div>
-
-    <div class="footer">
-        <p>&copy; 2025 Link Analyzer. All Rights Reserved.</p>
-    </div>
-    <script>
-        document.getElementById('toggleButton').addEventListener('click', function() {
-            var container = document.getElementById('linkResults');
-            if (container.style.display === 'none' || container.style.display === '') {
-                container.style.display = 'block';
-            } else {
-                container.style.display = 'none';
-            }
-        });
-    </script>
-
-
 
 
     <!-- <form action="" method="post">
