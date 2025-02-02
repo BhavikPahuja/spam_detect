@@ -86,7 +86,9 @@ button:active {
 }
 
 .results {
-    display: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     padding: 20px;
     border-radius: 8px;
     margin-top: 20px;
@@ -113,11 +115,3 @@ button:active {
     text-decoration: underline;
 }
 
-.footer {
-    position: absolute;
-    bottom: 20px;
-    width: 100%;
-    text-align: center;
-    font-size: 0.9rem;
-    color: #ddd;
-}

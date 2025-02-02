@@ -1,135 +1,106 @@
-/* General Body Styling */
+/* General Styling */
 body {
-    background: linear-gradient(135deg, #1a1a1a, #2d2d2d);
-    color: #fff;
+    background: linear-gradient(135deg, #121212, #242424);
+    color: #ffffff;
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
 }
 
 /* Navbar Styling */
 .navbar {
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
     right: 0;
-}
-
-/* Holder Styling */
-.holder {
+    background: rgba(0, 0, 0, 0.85);
+    padding: 15px 20px;
+    backdrop-filter: blur(10px);
     display: flex;
-    height: 600px;
-    width: 100%;
-    justify-content: center;
-    align-items: end;
-}
-
-/* Container Styling */
-.container {
-    position: relative;
-    width: 100%;
-    display: flex;
-    align-items: center;
     justify-content: space-between;
-    flex-wrap: wrap;
-    padding: 30px;
-    height: 440px;
-}
-
-/* Card Styling */
-.container .card {
-    position: relative;
-    max-width: calc(25% - 20px);
-    height: 215px;
-    background-color: #9f9f9f;
-    margin: 30px 10px;
-    padding: 20px 15px;
-    display: flex;
-    flex-direction: column;
-    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.5);
-    transition: 0.3s ease-in-out;
-    border-radius: 15px;
-}
-
-.container .card:hover {
-    height: 320px;
-}
-
-.container .card .image {
-    position: relative;
-    width: 260px;
-    height: 260px;
-    top: -40%;
-    left: 8px;
-    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
-    z-index: 1;
-}
-
-.container .card .image img {
-    max-width: 100%;
-    border-radius: 15px;
-}
-
-.container .card .content {
-    position: relative;
-    top: -140px;
-    padding: 10px 15px;
-    color: #111;
-    text-align: center;
-    visibility: hidden;
-    opacity: 0;
-    transition: 0.3s ease-in-out;
-}
-
-.container .card:hover .content {
-    margin-top: 30px;
-    visibility: visible;
-    opacity: 1;
-    transition-delay: 0.2s;
-}
-
-/* Details Section Styling */
-.details {
-    color: #fff;
-    font-size: 25px;
-    text-align: center;
-    margin-bottom: 50px;
-}
-
-/* Team Section Styling */
-.team {
-    display: flex;
-    height: 100%;
-    width: 100%;
-    justify-content: space-around;
     align-items: center;
 }
 
-.member {
-    width: 20%;
-    height: 500px;
-    margin-bottom: 50px;
+/* Button Styling - Consistent Across Pages */
+button, .btn {
+    background: linear-gradient(90deg, #ff416c, #ff4b2b);
+    color: white;
+    padding: 14px 22px;
+    border: none;
+    border-radius: 10px;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
 }
 
-.w-full {
-    height: 300px;
-    margin-bottom: 10px;
-    background-color: #d9d9d9;
+button:hover, .btn:hover {
+    background: linear-gradient(90deg, #ff4b2b, #ff416c);
+    transform: scale(1.08);
 }
 
-.card img {
-    height: 250px;
-    width: 250px;
-    overflow: hidden;
+/* Ensure QR Page Buttons Follow Global Styling */
+.qr-container button {
+    all: unset;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: auto;
+    min-width: 200px;
+    background: linear-gradient(90deg, #ff416c, #ff4b2b);
+    color: white;
+    padding: 14px 22px;
+    border-radius: 10px;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
 }
 
-.content h2 {
-    margin-top: 25px;
+.qr-container button:hover {
+    background: linear-gradient(90deg, #ff4b2b, #ff416c);
+    transform: scale(1.08);
 }
 
-.content img {
-    height: 25px;
-    width: 25px;
+/* Responsive Grid Layout */
+.container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 25px;
+    padding: 50px;
+    max-width: 1200px;
+    margin: auto;
 }
 
-.content button {
-    margin-top: 50px;
+/* Form Enhancements */
+input, textarea {
+    width: 100%;
+    padding: 12px;
+    margin-top: 8px;
+    border: 1px solid #666;
+    border-radius: 8px;
+    background: #333;
+    color: white;
+}
+
+input:focus, textarea:focus {
     outline: none;
+    border-color: #ff416c;
+    box-shadow: 0 0 5px rgba(255, 65, 108, 0.5);
+}
+
+/* Media Query for Mobile */
+@media (max-width: 768px) {
+    .container {
+        grid-template-columns: 1fr;
+        padding: 30px;
+    }
+
+    button, .btn {
+        width: 100%;
+    }
 }
